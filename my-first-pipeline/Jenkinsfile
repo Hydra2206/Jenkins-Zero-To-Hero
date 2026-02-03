@@ -5,8 +5,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'python'
-        sh 'print("hello duniya")'
+        sh 'python3 test.py'
       }
     }
   }
