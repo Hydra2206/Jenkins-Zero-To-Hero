@@ -6,8 +6,9 @@ pipeline {
     stage('Test') {
       steps {
         sh '''
+           cd my-first-pipeline
            python3 --version
-           python3 script.py
+           python3 test.py
         '''
       }
     }
