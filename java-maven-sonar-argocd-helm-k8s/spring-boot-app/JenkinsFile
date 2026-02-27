@@ -20,15 +20,6 @@ pipeline {
       }
     }
 
-    stage('Debug Java') {
-    steps {
-        sh '''
-            echo "JAVA_HOME=$JAVA_HOME"
-            java -version
-            mvn -version
-        '''
-    }
-    }
     stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://13.205.168.87:9000/"
