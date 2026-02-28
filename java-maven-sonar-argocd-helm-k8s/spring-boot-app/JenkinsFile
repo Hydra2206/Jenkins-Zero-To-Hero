@@ -56,13 +56,12 @@ pipeline {
                 sh '''
                     pwd
                     ls -la
-                    git config --global user.email "anoop.xyz@gmail.com"
-                    git config --global user.name "Anoop Kumar"
+                    git config --global user.email "mittu270318@gmail.com"
+                    git config --global user.name "Hydra2206"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
-                    git config --global --add safe.directory /var/lib/jenkins/workspace/java-maven-pipeline@2
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
-                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git commit -m "Update deployment image to version ${BUILD_NUMBER}" || echo "No changes"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
             }
